@@ -1,0 +1,199 @@
+.x{
+    color: #2ecc71;
+    background-image: -webkit-linear-gradient(90deg,#f1c40f,#9b59b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 60s infinite linear;
+
+}
+
+h1{
+    color: #2ecc71;
+    background-image: -webkit-linear-gradient(90deg,#f1c40f,#9b59b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 60s infinite linear;
+}
+
+.login {
+    width: 400px;
+    margin: 100px auto;
+    padding: 10px;
+}
+.login h3 {
+
+}
+.login input {
+    margin-bottom: 10px;
+
+
+}
+ body {
+     background-color:#fff;
+ }
+ /* nav bar */
+.navbar {
+    border-radius: 0px;
+}
+
+.asterisk {
+    font-size: 18px;
+    position: absolute;
+    top: 6px;
+    right: 21px;
+    color: #ad0e0e;
+}
+.form-control {
+    position: relative;
+
+}
+.show-pass {
+    position: absolute;
+    position: absolute;
+    right: 33px;
+    top: 8px;
+}
+.main-table tr:first-child td{
+    background-color: #333;
+    color: #fff;
+
+}
+/* *************** Dashboard ********************/
+.home-stat .stat{
+    padding: 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 50px;
+
+}
+.stat a {
+    color: #fff;
+}
+.stat a:hover{
+    text-decoration: none;
+}
+.st-members {
+    background-color: #3498db;
+
+}
+.st-pending {
+background-color:#e74c3c ;
+}
+.st-items {
+background-color:#2ecc71 ;
+}
+.st-comments {
+background-color:#9b59b6 ;
+}
+.home-stat .stat span {
+    display: block;
+    font-size: 50px;
+}
+.latest-user {
+    margin-bottom: 0px;
+
+}
+.latest-user li {
+    padding: 8px;
+    overflow: hidden;
+
+
+}
+.latest-user li:nth-child(odd){
+    background-color: #eee;
+}
+.latest-user .btn-info {
+    padding: 3px 8px;
+}
+.latest-user .btn-success {
+    padding: 3px 8px;
+    margin-right: 5px;
+    background-color: #f1c40f;
+}
+.latest-user a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ***** Categories Page*****************************************    ***/
+.cats .cat   h3 {
+    margin: 0px;
+    cursor: pointer;
+
+}
+.cats .panel-body {
+    padding: 0px;
+}
+.cats .cat .view p {
+    margin: 10px 0px;
+}
+.cats hr {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.cats .cat:last-of-type hr {
+    display: none;
+}
+.cats .cat .vis {
+    background-color: #9b59b6;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 0px 5px;
+}
+.cats .cat .com {
+    background-color: #262626;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 0px 5px;
+}
+.cats .cat .ads {
+    background-color: #2ecc71;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 0px 5px;
+}
+.cats .cat{
+    position: relative;
+    overflow: hidden;
+}
+.cats .cat:hover .hidden-btn {
+    right: 10px;
+
+}
+.cats .cat .view {
+    margin: 10px 0px;
+}
+.cats .cat:hover{
+    background-color: #eee;
+}
+.cats .cat .hidden-btn {
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    position: absolute;
+    top: 10px;
+    right: -130px;
+}
+.cats .cat .hidden-btn a {
+    margin-right: 5px;
+
+}
+.option{
+    color: #888;
+}
+.option a {
+    text-decoration: none ;
+    color: #ccc;
+}
+.option span {
+    cursor: pointer ;
+    color: #ccc;
+}
+.option .active {
+    color: black;
+}
