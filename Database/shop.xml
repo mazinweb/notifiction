@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.0.10deb1
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Apr 20, 2017 at 01:25 PM
+- Server version: 5.5.54-0ubuntu0.14.04.1
+- PHP Version: 5.5.9-1ubuntu4.21
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="shop" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="categories">
+                CREATE TABLE `categories` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(255) NOT NULL,
+                  `description` text NOT NULL,
+                  `ordering` int(11) DEFAULT NULL,
+                  `visibility` tinyint(4) NOT NULL DEFAULT '0',
+                  `allow_comment` tinyint(4) NOT NULL DEFAULT '0',
+                  `allow_ads` tinyint(4) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `name` (`name`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="comment">
+                CREATE TABLE `comment` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `comment` text NOT NULL,
+                  `stat` tinyint(4) NOT NULL,
+                  `date` date NOT NULL,
+                  `item_id` int(11) NOT NULL,
+                  `user_id` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `item_comment` (`item_id`),
+                  KEY `user_comment` (`user_id`),
+                  CONSTRAINT `item_comment` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `user_comment` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="items">
+                CREATE TABLE `items` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(255) NOT NULL,
+                  `price` varchar(255) NOT NULL,
+                  `add_date` date NOT NULL,
+                  `country_made` varchar(255) NOT NULL,
+                  `image` varchar(255) NOT NULL,
+                  `stat` int(11) NOT NULL,
+                  `rating` smallint(6) NOT NULL,
+                  `cat_id` int(11) NOT NULL,
+                  `member_id` int(11) NOT NULL,
+                  `descrip` text NOT NULL,
+                  `approve` tinyint(4) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`id`),
+                  KEY `member_1` (`member_id`),
+                  KEY `cat_1` (`cat_id`),
+                  CONSTRAINT `cat_1` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `member_1` FOREIGN KEY (`member_id`) REFERENCES `users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `userID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'to id user',
+                  `username` varchar(255) NOT NULL COMMENT 'user to login',
+                  `password` varchar(255) NOT NULL COMMENT 'password to login',
+                  `email` varchar(255) NOT NULL,
+                  `fullname` varchar(255) NOT NULL,
+                  `groupID` int(11) NOT NULL DEFAULT '0' COMMENT 'id user group',
+                  `trusstatus` int(11) NOT NULL DEFAULT '0' COMMENT 'seller raank',
+                  `regstatus` int(11) NOT NULL DEFAULT '0' COMMENT 'user provel',
+                  `date` date NOT NULL,
+                  PRIMARY KEY (`userID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'shop'
+    -->
+    <database name="shop">
+        <!-- Table categories -->
+        <table name="categories">
+            <column name="id">2</column>
+            <column name="name">Galaxy</column>
+            <column name="description">Samsung </column>
+            <column name="ordering">3</column>
+            <column name="visibility">1</column>
+            <column name="allow_comment">0</column>
+            <column name="allow_ads">1</column>
+        </table>
+        <table name="categories">
+            <column name="id">3</column>
+            <column name="name">private</column>
+            <column name="description">this is private</column>
+            <column name="ordering">3</column>
+            <column name="visibility">1</column>
+            <column name="allow_comment">1</column>
+            <column name="allow_ads">1</column>
+        </table>
+        <table name="categories">
+            <column name="id">5</column>
+            <column name="name">iphone</column>
+            <column name="description">Apple Divice</column>
+            <column name="ordering">2</column>
+            <column name="visibility">0</column>
+            <column name="allow_comment">1</column>
+            <column name="allow_ads">0</column>
+        </table>
+        <table name="categories">
+            <column name="id">7</column>
+            <column name="name">Tecno</column>
+            <column name="description"> C9 blus</column>
+            <column name="ordering">5</column>
+            <column name="visibility">0</column>
+            <column name="allow_comment">1</column>
+            <column name="allow_ads">0</column>
+        </table>
+        <table name="categories">
+            <column name="id">8</column>
+            <column name="name">HTC</column>
+            <column name="description">NEW</column>
+            <column name="ordering">9</column>
+            <column name="visibility">0</column>
+            <column name="allow_comment">1</column>
+            <column name="allow_ads">1</column>
+        </table>
+        <table name="categories">
+            <column name="id">9</column>
+            <column name="name">ooo</column>
+            <column name="description">lll</column>
+            <column name="ordering">0</column>
+            <column name="visibility">0</column>
+            <column name="allow_comment">0</column>
+            <column name="allow_ads">0</column>
+        </table>
+        <!-- Table comment -->
+        <table name="comment">
+            <column name="id">4</column>
+            <column name="comment">mmmmmmmmmm</column>
+            <column name="stat">0</column>
+            <column name="date">2017-04-05</column>
+            <column name="item_id">3</column>
+            <column name="user_id">1</column>
+        </table>
+        <table name="comment">
+            <column name="id">5</column>
+            <column name="comment">                                kjgffbbhuigbffvguhbdgnkicghvbrhgbcnjdhbfc jkdfnbc fbcjsefbcj vsjhgc vwehjcxbsdufbgceurfcgfwuycsdnckdbgfbcye  
+moscgjfdnbkldfmb,dbm,vgngfnfg
+ngflnmgflnmlfgnfnf
+ngf
+nfg
+n
+fgn
+
+
+
+nfgngfnfgnmfmnmn
+                          </column>
+            <column name="stat">0</column>
+            <column name="date">2017-04-19</column>
+            <column name="item_id">2</column>
+            <column name="user_id">13</column>
+        </table>
+        <!-- Table items -->
+        <table name="items">
+            <column name="id">2</column>
+            <column name="name">gta1</column>
+            <column name="price">$10</column>
+            <column name="add_date">2017-04-14</column>
+            <column name="country_made">USA</column>
+            <column name="image"></column>
+            <column name="stat">4</column>
+            <column name="rating">0</column>
+            <column name="cat_id">5</column>
+            <column name="member_id">16</column>
+            <column name="descrip">very good</column>
+            <column name="approve">1</column>
+        </table>
+        <table name="items">
+            <column name="id">3</column>
+            <column name="name">ps4</column>
+            <column name="price">10</column>
+            <column name="add_date">2017-04-14</column>
+            <column name="country_made">ds</column>
+            <column name="image"></column>
+            <column name="stat">1</column>
+            <column name="rating">0</column>
+            <column name="cat_id">5</column>
+            <column name="member_id">3</column>
+            <column name="descrip">games</column>
+            <column name="approve">0</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="userID">1</column>
+            <column name="username">yaseen</column>
+            <column name="password">40bd001563085fc35165329ea1ff5c5ecbdbbeef</column>
+            <column name="email">yaseeno373@gmail.com</column>
+            <column name="fullname">yaseen omar</column>
+            <column name="groupID">1</column>
+            <column name="trusstatus">0</column>
+            <column name="regstatus">1</column>
+            <column name="date">0000-00-00</column>
+        </table>
+        <table name="users">
+            <column name="userID">3</column>
+            <column name="username">omar</column>
+            <column name="password">a9993e364706816aba3e25717850c26c9cd0d89d</column>
+            <column name="email"></column>
+            <column name="fullname">omar yousif</column>
+            <column name="groupID">1</column>
+            <column name="trusstatus">0</column>
+            <column name="regstatus">1</column>
+            <column name="date">0000-00-00</column>
+        </table>
+        <table name="users">
+            <column name="userID">13</column>
+            <column name="username">osman</column>
+            <column name="password">40bd001563085fc35165329ea1ff5c5ecbdbbeef</column>
+            <column name="email">as@</column>
+            <column name="fullname">os ali</column>
+            <column name="groupID">0</column>
+            <column name="trusstatus">0</column>
+            <column name="regstatus">1</column>
+            <column name="date">2017-04-08</column>
+        </table>
+        <table name="users">
+            <column name="userID">14</column>
+            <column name="username">hady</column>
+            <column name="password">fd2f2cbb142c27da92f49291a506e74d434bc063</column>
+            <column name="email">fff</column>
+            <column name="fullname">hhhh</column>
+            <column name="groupID">0</column>
+            <column name="trusstatus">0</column>
+            <column name="regstatus">1</column>
+            <column name="date">2017-04-08</column>
+        </table>
+        <table name="users">
+            <column name="userID">15</column>
+            <column name="username">dany</column>
+            <column name="password">40bd001563085fc35165329ea1ff5c5ecbdbbeef</column>
+            <column name="email">jk</column>
+            <column name="fullname">jjj</column>
+            <column name="groupID">0</column>
+            <column name="trusstatus">0</column>
+            <column name="regstatus">0</column>
+            <column name="date">2017-04-08</column>
+        </table>
+        <table name="users">
+            <column name="userID">16</column>
+            <column name="username">bahry</column>
+            <column name="password">40bd001563085fc35165329ea1ff5c5ecbdbbeef</column>
+            <column name="email">jjjj</column>
+            <column name="fullname">km</column>
+            <column name="groupID">0</column>
+            <column name="trusstatus">0</column>
+            <column name="regstatus">1</column>
+            <column name="date">2017-04-13</column>
+        </table>
+    </database>
+</pma_xml_export>
